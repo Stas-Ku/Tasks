@@ -1,0 +1,30 @@
+import sys
+from inspect import isfunction, getmodule
+
+
+def introspection_info(obj):
+
+    attributes = []
+    methods = []
+    for attr in dir(obj):
+        if callable(getattr(obj, attr)):
+            methods.append(attr)
+        else:
+            attributes.append(attr)
+    return {
+        'type': type(obj).__name__,
+        'attributes': attributes,
+        'methods': methods,
+        'module': __name__,
+        'id': id(obj),
+        'size': sys.getsizeof(obj)
+    }
+
+number_info = introspection_info(42)
+print(number_info)
+
+Консоль
+"C:\Program Files\Python312\python.exe" C:/Users/Дом/PycharmProjects/djangoProject/Задания/module_11_3.py
+{'type': 'int', 'attributes': ['__doc__', 'denominator', 'imag', 'numerator', 'real'], 'methods': ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__getstate__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'as_integer_ratio', 'bit_count', 'bit_length', 'conjugate', 'from_bytes', 'is_integer', 'to_bytes'], 'module': '__main__', 'id': 140735715282648, 'size': 28}
+
+Process finished with exit code 0
