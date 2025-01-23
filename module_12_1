@@ -1,0 +1,43 @@
+import runner
+import unittest
+
+class RunnerTest(unittest.TestCase):
+    def test_walk(self):
+        hum1 = runner.Runner('Доходяга')
+        for i in range(10):
+            hum1.walk()
+
+        self.assertEqual(hum1.distance, 50)
+
+    def test_run(self):
+        hum1 = runner.Runner('Доходяга')
+        for i in range(10):
+            hum1.run()
+
+        self.assertEqual(hum1.distance, 100)
+
+    def test_challenge(self):
+        hum1 = runner.Runner('Доходяга')
+        hum2 = runner.Runner('Инвалид')
+        for i in range(10):
+            hum1.walk()
+            hum2.run()
+
+        self.assertNotEqual(hum1.distance, 150)
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+Консоль:
+"C:\Program Files\Python312\python.exe" "C:\Program Files\JetBrains\PyCharm 2022.1.3\plugins\python\helpers\pycharm\_jb_unittest_runner.py" --path C:/Users/Дом/PycharmProjects/djangoProject/Задания/module_12_1.py
+Testing started at 14:06 ...
+
+
+Ran 3 tests in 0.003s
+
+OK
+Launching unittests with arguments python -m unittest C:/Users/Дом/PycharmProjects/djangoProject/Задания/module_12_1.py in C:\Users\Дом\PycharmProjects\djangoProject\Задания
+
+
+Process finished with exit code 0
